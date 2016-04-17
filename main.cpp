@@ -5,20 +5,21 @@ using namespace std;
 
 void read(int x);
 
+int zerosOnes(int n);
+
 
 int main(int argc, char *argv[])
 {
-	printf("Hello, human!\n");
-	cout<<"Wprowadz liczbe z przedziału <0, 1000000>\n";
-	int number;
-	cin>>number;
-	cout<<"twoja liczba to:\n ";
-	read(number);
 	cout<<endl;
-
-
-
-
+	int number=atoi(argv[1]);
+	cout<<"Po pomnozeniu ";
+	read(number);
+	cout<<" przez ";
+	read(zerosOnes(number));
+	cout<<" otrzymamy ";
+	cout<<zerosOnes(number)*number;
+	cout<<"\nczyli liczbe skladajaca sie z samych zer i jedynek";
+	cout<<endl<<endl;
 }
 
 void read(int x)
@@ -123,4 +124,22 @@ void read(int x)
 								cout<<"tysiecy ";
 			}
 		}
+}
+
+int zerosOnes(int n)
+{
+	int k=1, aux=n;
+
+	while(aux>0)
+	{
+		if((aux)%10==0 || (aux)%10==1)
+			aux=aux/10;
+		else
+		{
+			k++;
+			aux=n*k;
+		}
+
+	}
+	return k;
 }
